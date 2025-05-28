@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  websocket:
+    image: ddelgadoi/servidor_examen
+    container_name: websocket-server
+    ports:
+      - "8080:8080"
+
+  frontend:
+    image: ddelgadoi/web_examen
+    container_name: angular-frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - websocket
